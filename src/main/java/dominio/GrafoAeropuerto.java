@@ -35,6 +35,101 @@ public class GrafoAeropuerto {
         vertices[posVaBorrar] = null;
         cantidad--;
     }
+ //Descripción: Retorna el camino más corto en kilómetros que podría realizar un pasajero para ir desde
+//el aeropuerto de origen al de destino. 
+public TuplaDijkastraRes dijkstra(Aeropuerto aOrigen, Aeropuerto aDestino){
+    int posOrigen = this.obtenerPos(aOrigen);
+    int posDest = this.obtenerPos(aDestino);
+
+
+    boolean[] visitados = new boolean[maxVertices];
+    Aeropuerto[] vengo = new Aeropuerto[maxVertices];
+    double[] costos = new double[maxVertices] ;
+
+    for (int i = 0; i < maxVertices; i++) {
+        costos[i]=  Double.MAX_VALUE;
+        vengo[i]=null;
+        visitados[i]=false;
+    }
+    costos[posOrigen]=0;
+
+    for (int v = 0; v < this.cantidad; v++) {
+        int pos = this.obtenerPosMenorNoVisitado(costos,visitados);
+        if(pos!=-1){
+            visitados[pos]=true;
+
+            for (int i = 0; i < aristas.length; i++) {
+                if (aristas[pos][i] != null) {
+                    double distanciaNueva = costos[pos] + aristas[pos][i].getKilometros();
+                    if (distanciaNueva < costos[i]) {
+                        costos[i] = distanciaNueva;
+                        vengo[i] = vertices[pos];
+                    }
+                }
+            }
+
+        }
+    }
+    Lista l = new Lista();
+    listarAeropuertosSegunAeropuerto(l, vengo, posDest);
+    return new TuplaDijkastraRes((int) costos[posDest],l);
+
+}
+    public void listarAeropuertosSegunAeropuerto(Lista listaAeropuerto, Aeropuerto[] anterior, int posDestino) {
+        Aeropuerto aeropuerto = vertices[posDestino];
+        listarAeropuertosSegunAeropuertoRec(listaAeropuerto, anterior, aeropuerto);
+    }
+
+    public void listarAeropuertosSegunAeropuertoRec(Lista listaAeropuerto, Aeropuerto[] anterior, Aeropuerto aeropuerto) {
+        if (aeropuerto != null) {
+            listaAeropuerto.insertar(aeropuerto);
+            int aeropuertoPosicion = obtenerPosSegunCodigo(aeropuerto.getCodigo());
+            Aeropuerto aeropuerto1 = anterior[aeropuertoPosicion];
+            listarAeropuertosSegunAeropuertoRec(listaAeropuerto, anterior, aeropuerto1);
+
+        }
+    }
+    //Descripción: Retorna el camino más corto en kilómetros que podría realizar un pasajero para ir desde
+//el aeropuerto de origen al de destino.
+    public TuplaDijkastraRes ViajeMinimoMinutos(Aeropuerto aOrigen, Aeropuerto aDestino){
+        int posOrigen = this.obtenerPos(aOrigen);
+        int posDest = this.obtenerPos(aDestino);
+
+
+        boolean[] visitados = new boolean[maxVertices];
+        Aeropuerto[] vengo = new Aeropuerto[maxVertices];
+        double[] costos = new double[maxVertices] ;
+
+        for (int i = 0; i < maxVertices; i++) {
+            costos[i]=  Double.MAX_VALUE;
+            vengo[i]=null;
+            visitados[i]=false;
+        }
+        costos[posOrigen]=0;
+
+        for (int v = 0; v < this.cantidad; v++) {
+            int pos = this.obtenerPosMenorNoVisitado(costos,visitados);
+            if(pos!=-1){
+                visitados[pos]=true;
+
+                for (int i = 0; i < aristas.length; i++) {
+                    if (aristas[pos][i] != null) {
+                        double distanciaNueva = costos[pos] + aristas[pos][i].getVuelos().buscarVueloMasCorto();
+                        if (distanciaNueva < costos[i]) {
+                            costos[i] = distanciaNueva;
+                            vengo[i] = vertices[pos];
+                        }
+                    }
+                }
+
+            }
+        }
+        Lista l = new Lista();
+        listarAeropuertosSegunAeropuerto(l, vengo, posDest);
+
+        return new TuplaDijkastraRes((int) costos[posDest],l);
+
+    }
 
     public void agregarArista(String vInicial, String vFinal, double kilometros) {
         int posVInicial = buscarPos(new Aeropuerto(vInicial,""));
@@ -93,7 +188,10 @@ public class GrafoAeropuerto {
         }
         return -1;
     }
+  //Descripción: Dado un aeropuerto de origen se debe retornar en el valorString los datos de los 
 
+    //aeropuertos (ordenados por código creciente) a los que se pueda llegar realizando hasta la cantidad 
+//de escalas indicada por parámetro y mediante vuelos de la aerolínea indicada. 
     public ABBGenerico<Aeropuerto> bfs(Aeropuerto vert, int cantidad,String codigoAerolinea){
         ABBGenerico<Aeropuerto> ret = new ABBGenerico<>();
         if(cantidad==0){
@@ -137,98 +235,7 @@ public class GrafoAeropuerto {
         }
         return -1;
     }
-public TuplaDijkastraRes dijkstra(Aeropuerto aOrigen, Aeropuerto aDestino){
-    int posOrigen = this.obtenerPos(aOrigen);
-    int posDest = this.obtenerPos(aDestino);
-
-
-    boolean[] visitados = new boolean[maxVertices];
-    Aeropuerto[] vengo = new Aeropuerto[maxVertices];
-    double[] costos = new double[maxVertices] ;
-
-    for (int i = 0; i < maxVertices; i++) {
-        costos[i]=  Double.MAX_VALUE;
-        vengo[i]=null;
-        visitados[i]=false;
-    }
-    costos[posOrigen]=0;
-
-    for (int v = 0; v < this.cantidad; v++) {
-        int pos = this.obtenerPosMenorNoVisitado(costos,visitados);
-        if(pos!=-1){
-            visitados[pos]=true;
-
-            for (int i = 0; i < aristas.length; i++) {
-                if (aristas[pos][i] != null) {
-                    double distanciaNueva = costos[pos] + aristas[pos][i].getKilometros();
-                    if (distanciaNueva < costos[i]) {
-                        costos[i] = distanciaNueva;
-                        vengo[i] = vertices[pos];
-                    }
-                }
-            }
-
-        }
-    }
-    Lista l = new Lista();
-    listarAeropuertosSegunAeropuerto(l, vengo, posDest);
-    return new TuplaDijkastraRes((int) costos[posDest],l);
-
-}
-    public void listarAeropuertosSegunAeropuerto(Lista listaAeropuerto, Aeropuerto[] anterior, int posDestino) {
-        Aeropuerto aeropuerto = vertices[posDestino];
-        listarAeropuertosSegunAeropuertoRec(listaAeropuerto, anterior, aeropuerto);
-    }
-
-    public void listarAeropuertosSegunAeropuertoRec(Lista listaAeropuerto, Aeropuerto[] anterior, Aeropuerto aeropuerto) {
-        if (aeropuerto != null) {
-            listaAeropuerto.insertar(aeropuerto);
-            int aeropuertoPosicion = obtenerPosSegunCodigo(aeropuerto.getCodigo());
-            Aeropuerto aeropuerto1 = anterior[aeropuertoPosicion];
-            listarAeropuertosSegunAeropuertoRec(listaAeropuerto, anterior, aeropuerto1);
-
-        }
-    }
-    public TuplaDijkastraRes ViajeMinimoMinutos(Aeropuerto aOrigen, Aeropuerto aDestino){
-        int posOrigen = this.obtenerPos(aOrigen);
-        int posDest = this.obtenerPos(aDestino);
-
-
-        boolean[] visitados = new boolean[maxVertices];
-        Aeropuerto[] vengo = new Aeropuerto[maxVertices];
-        double[] costos = new double[maxVertices] ;
-
-        for (int i = 0; i < maxVertices; i++) {
-            costos[i]=  Double.MAX_VALUE;
-            vengo[i]=null;
-            visitados[i]=false;
-        }
-        costos[posOrigen]=0;
-
-        for (int v = 0; v < this.cantidad; v++) {
-            int pos = this.obtenerPosMenorNoVisitado(costos,visitados);
-            if(pos!=-1){
-                visitados[pos]=true;
-
-                for (int i = 0; i < aristas.length; i++) {
-                    if (aristas[pos][i] != null) {
-                        double distanciaNueva = costos[pos] + aristas[pos][i].getVuelos().buscarVueloMasCorto();
-                        if (distanciaNueva < costos[i]) {
-                            costos[i] = distanciaNueva;
-                            vengo[i] = vertices[pos];
-                        }
-                    }
-                }
-
-            }
-        }
-        Lista l = new Lista();
-        listarAeropuertosSegunAeropuerto(l, vengo, posDest);
-
-        return new TuplaDijkastraRes((int) costos[posDest],l);
-
-    }
-
+ 
     //Obtener la posicion del aeropuerto por su codigo
     public int obtenerPosSegunCodigo(String codigoAeropuerto) {
         for (int i = 0; i < maxVertices; i++) {
