@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="28a5e605-ad02-48a3-9e27-06c253cde1b5" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2gko0zpTDTBI2rhlQoXbgQDyNlj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.All in test.executor": "Run",
+    "JUnit.Test01_InicializarSistemaTest.executor": "Run",
+    "JUnit.Test02_RegistrarPasajeroTest.executor": "Run",
+    "JUnit.Test03_BuscarPasajeroTest.executor": "Run",
+    "JUnit.Test04_ListarPasajerosAscendenteTest.executor": "Run",
+    "JUnit.Test05_ListarPasajerosPorCategoriaTest.executor": "Run",
+    "JUnit.Test06_RegistrarAerolineaTest.executor": "Run",
+    "JUnit.Test07_ListarAerolineasDescendenteTest.executor": "Run",
+    "JUnit.Test08_RegistrarAeropuertoTest.executor": "Run",
+    "JUnit.Test09_RegistrarConexionTest.executor": "Run",
+    "JUnit.Test10_RegistrarVueloTest.executor": "Run",
+    "JUnit.Test11_ListadoAeropuertosCantDeEscalasTest.executor": "Run",
+    "JUnit.Test12_ViajeCostoMinimoKilometrosTest.executor": "Run",
+    "JUnit.Test13_ViajeCostoMininoEnMinutosTest.executor": "Run",
+    "JUnit.sistema in test.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/facun/OneDrive - Facultad de Ingenieria - Universidad ORT Uruguay/Obligatorio Algoritmos 2/Entrega Obligatorio Calda-Kalina/Obl-AED2-mar24-v3"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dominio" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.All in test">
+    <configuration name="All in test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test03_BuscarPasajeroTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sistema.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sistema" />
+      <option name="MAIN_CLASS_NAME" value="sistema.Test03_BuscarPasajeroTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test12_ViajeCostoMinimoKilometrosTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sistema.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sistema" />
+      <option name="MAIN_CLASS_NAME" value="sistema.Test12_ViajeCostoMinimoKilometrosTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test13_ViajeCostoMininoEnMinutosTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sistema.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sistema" />
+      <option name="MAIN_CLASS_NAME" value="sistema.Test13_ViajeCostoMininoEnMinutosTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="sistema in test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sistema.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sistema" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in test" />
+        <item itemvalue="JUnit.sistema in test" />
+        <item itemvalue="JUnit.Test03_BuscarPasajeroTest" />
+        <item itemvalue="JUnit.Test13_ViajeCostoMininoEnMinutosTest" />
+        <item itemvalue="JUnit.Test12_ViajeCostoMinimoKilometrosTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="28a5e605-ad02-48a3-9e27-06c253cde1b5" name="Changes" comment="" />
+      <created>1716250717832</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716250717832</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="dominio.GrafoAeropuerto" memberName="aristas" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="aristas.length" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
